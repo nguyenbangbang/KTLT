@@ -9,8 +9,6 @@
 
 using namespace std;
 
-CaroGame game;
-char key;
 
 struct Move {
 	char player;
@@ -164,7 +162,7 @@ public:
 			cout << "No moves to save. Skipping save.\n";
 			return;
 		}
-			
+
 
 		ofstream file("game.csv");
 
@@ -247,11 +245,14 @@ public:
 	}
 };
 
+CaroGame game;
+char key;
 
 void option1() {
 	game = CaroGame();
 	while (true) {
 		game.displayBoard();
+		cout << "Press [UP]-[DOWN]-[LEFT]-[RIGHT] to move\nPress [ENTER] to select \n";
 		cout << "\nPlayer " << game.getCurrentPlayer()
 			<< "'s turn. Use arrow keys to move and Enter to place.\n";
 		key = _getch();
@@ -314,23 +315,7 @@ void menu() {
 	}
 }
 
-
 int main() {
-	//CaroGame game;
-	//char key;
-	//while (true) {
-	//	game.displayBoard();
-	//	key = _getch();
-	//	if (key == -32) key = _getch(); // xử lý phím mở rộng
-	//	if (key == 72) game.moveCursor(0);      // Up
-	//	else if (key == 80) game.moveCursor(1);   // Down
-	//	else if (key == 75) game.moveCursor(2);   // Left
-	//	else if (key == 77) game.moveCursor(3);   // Right
-	//	else if (key == 13) { // Enter
-	//		if (game.makeMove())
-	//			break;
-	//	}
-	//}
 	menu();
 	return 0;
 }
